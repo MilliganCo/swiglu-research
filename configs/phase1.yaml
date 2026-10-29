@@ -1,0 +1,39 @@
+model: Qwen/Qwen3-1.7B-Base
+revision: ea980cb0a6c2ae4b936e82123acc929f1cec04c1
+device: cuda
+dtype: bfloat16
+seed: 42
+layer: 14
+shape: [96, 64, 8, 8, 32]
+clusters: 96
+strategies: [identity, random, structure-aware]
+permutation_seeds: [42, 43, 44]
+ranks:
+  - [32, 24, 4, 4, 16]
+  - [48, 32, 6, 6, 24]
+  - [64, 48, 8, 8, 32]
+  - [80, 56, 8, 8, 32]
+benchmark:
+  prompt_lengths: [128, 512, 2048, 4096]
+  batch_size: 1
+  new_tokens: 128
+  warmups: 10
+  iterations: 30
+quality:
+  dataset: Salesforce/wikitext
+  revision: main
+  subset: wikitext-2-raw-v1
+  calibration_tokens: 1024
+  evaluation_tokens: 4096
+  block_size: 512
+  stride: 256
+  logits_tokens: 64
+tolerance:
+  fp32_rtol: 0.0001
+  fp32_atol: 0.00002
+  bf16_rtol: 0.03
+  bf16_atol: 0.03
+  bf16_relative: 0.008
+  logits_relative: 0.01
+  logits_max: 0.5
+output: results

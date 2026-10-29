@@ -1,0 +1,34 @@
+model: Qwen/Qwen3-1.7B-Base
+revision: ea980cb0a6c2ae4b936e82123acc929f1cec04c1
+device: cuda
+dtype: bfloat16
+seed: 42
+layer: 14
+layers: [14, 0, 7, 21, 27]
+budgets: {high: 27586944, medium: 18502368}
+shared_fractions: [0.0, 0.25, 0.5, 0.75, 1.0]
+diagnostic_k: [128, 256, 512, 768, 1024, 1536, 2048]
+diagnostic_source: results/runs/20261006T074228Z-2c3f30a0
+quality:
+  dataset: Salesforce/wikitext
+  revision: b08601e04326c79dfdd32d625aee71d232d685c3
+  subset: wikitext-2-raw-v1
+  calibration_tokens: 2048
+  evaluation_tokens: 4096
+  block_size: 512
+  stride: 256
+split: {selection_tokens: 1024, train_fraction: 0.75, seed: 4242}
+tuning:
+  close_ratio: 1.05
+  learning_rates: [0.0001, 0.0003]
+  seeds: [5101, 5107]
+  steps: 60
+  batch_tokens: 32
+  validation_interval: 10
+  patience: 3
+  minimum_improvement: 0.0001
+  optimizer: AdamW
+  weight_decay: 0.0
+  lambda_mlp: 1.0
+  lambda_block: 0.0
+output: results

@@ -1,0 +1,30 @@
+{
+  "hellaswag": {
+    "path": "Rowan/hellaswag",
+    "subset": null,
+    "split": "validation",
+    "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+    "rows": 10042
+  },
+  "piqa": {
+    "path": "baber/piqa",
+    "subset": null,
+    "split": "validation",
+    "revision": "142f6d7367fd9877f0fb3b5734ea6a545f54cdd1",
+    "rows": 1838
+  },
+  "arc_easy": {
+    "path": "allenai/ai2_arc",
+    "subset": "ARC-Easy",
+    "split": "test",
+    "revision": "210d026faf9955653af8916fad021475a3f00453",
+    "rows": 2376
+  },
+  "winogrande": {
+    "path": "allenai/winogrande",
+    "subset": "winogrande_xl",
+    "split": "validation",
+    "revision": "01e74176c63542e6b0bcb004dcdea22d94fb67b5",
+    "rows": 1267
+  }
+}

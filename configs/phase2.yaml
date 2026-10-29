@@ -1,0 +1,45 @@
+model: Qwen/Qwen3-1.7B-Base
+revision: ea980cb0a6c2ae4b936e82123acc929f1cec04c1
+device: cuda
+dtype: bfloat16
+seed: 42
+layer: 14
+layers: [14, 0, 7, 21, 27]
+shape: [96, 64, 8, 8, 32]
+seeds:
+  projection: [101, 211, 307, 401, 503, 601, 709, 809, 907, 1009]
+  clustering: [1103, 1201, 1301, 1409, 1511, 1601, 1709, 1801, 1907, 2003]
+  permutation: [2203, 2309, 2411, 2503, 2609, 2707, 2801, 2903, 3001, 3109]
+transfer_replicas: 3
+auction_epsilon: 0.0001
+rank_configs:
+  - {name: high-A, ablation: A, ranks: [80, 56, 8, 8, 32]}
+  - {name: medium-A, ablation: A, ranks: [79, 38, 8, 8, 32]}
+  - {name: medium-B, ablation: B, ranks: [87, 46, 8, 8, 24]}
+  - {name: medium-C, ablation: C, ranks: [93, 59, 5, 7, 32]}
+  - {name: low-A, ablation: A, ranks: [40, 51, 8, 8, 32]}
+  - {name: low-B, ablation: B, ranks: [75, 30, 8, 8, 29]}
+  - {name: low-C, ablation: C, ranks: [90, 56, 6, 6, 23]}
+  - {name: floor-A, ablation: A, ranks: [27, 57, 8, 8, 32]}
+  - {name: floor-B, ablation: B, ranks: [75, 41, 8, 8, 16]}
+  - {name: floor-C, ablation: C, ranks: [69, 46, 4, 8, 31]}
+activation:
+  enabled: true
+  layer: 14
+  rank_configs: [high-A, medium-A]
+  coefficient: 0.25
+  features: [gate_rms, silu_rms, up_rms, product_rms, contribution_rms, product_variance, abs_product_mean]
+  normalization: log-floor-then-column-zscore
+  floor: 0.000000000001
+  chunk_tokens: 128
+quality:
+  dataset: Salesforce/wikitext
+  revision: b08601e04326c79dfdd32d625aee71d232d685c3
+  subset: wikitext-2-raw-v1
+  calibration_tokens: 1024
+  evaluation_tokens: 4096
+  block_size: 512
+  stride: 256
+  logits_tokens: 64
+bootstrap: {seed: 4001, samples: 10000}
+output: results

@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "phase1_phase2_protected_files": 352,
+  "history_prefix_unchanged": true,
+  "phase1_phase2_files_unchanged": true,
+  "exact_bf16_storage_and_factor_sha": true,
+  "global_raw_matches": true,
+  "diagnostic_layers": [
+    0,
+    7,
+    14,
+    21,
+    27
+  ],
+  "diagnostic_pair_k_rows": 105,
+  "spectra": 20,
+  "successful_local_candidates": 40,
+  "tuned_candidates": 18,
+  "failed_rows": 0,
+  "diagnostic_coverage_and_spectrum_dimensions": true,
+  "calibration_split_and_capture_sha": true,
+  "two_training_seeds_at_validation_selected_lr": true,
+  "source_snapshot_sha_verified": true,
+  "dense_and_zero_local_controls": true,
+  "run_git_commit": "b2ac2d9172a31b2426baae828a180c22e92d2141",
+  "run_source_snapshot_sha256": "31bdc30e73285c1fe21c0bb8d9f707ea7fb48eb85e314b8a6e715ec0aca651ab",
+  "corrected_diagnostic_run": "20261006T100155Z-d0294b98",
+  "corrected_diagnostic_git_commit": "777a2b9cd9eeaf7ba0821032fb405de65f26cae0",
+  "corrected_diagnostic_source_sha256": "3ec7371c421f54a29af6d6943b48a3968ff3a66635e5a1284e9fddb1b968dc35",
+  "pytest": {
+    "passed": 41,
+    "skipped": 0,
+    "seconds": 32.29,
+    "source_sha256": "1344b107ddfc609148e62c8c189debe202cbde9836e70cb868125c5a601eaade",
+    "command": "python -m pytest -q --layer-artifact results/runs/20261006T061513Z-aa43964f/layer14.safetensors --calibration-artifact results/runs/20261006T061513Z-aa43964f/calibration.safetensors",
+    "log": "phase3a_pytest_final.log"
+  }
+}

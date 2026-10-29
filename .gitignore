@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+artifacts/
+results/runs/*/factors/
+results/
+.cache/
+models/
+*.safetensors
+*.pt
+*.bin
+*.log
